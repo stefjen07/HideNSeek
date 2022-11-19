@@ -21,12 +21,12 @@
 		3E4204BD2926CCD8002907DD /* HiderView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204BC2926CCD8002907DD /* HiderView-ViewModel.swift */; };
 		3E4204BF2926CD1F002907DD /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204BE2926CD1F002907DD /* AudioService.swift */; };
 		3E4204C32926D498002907DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204C22926D498002907DD /* Constants.swift */; };
-		3E4204C72927CD3D002907DD /* BirdsClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204C62927CD3C002907DD /* BirdsClassifier.mlmodel */; };
 		3E4204D7292821C6002907DD /* SeekerView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204D6292821C6002907DD /* SeekerView-ViewModel.swift */; };
 		3E4204D9292842DA002907DD /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204D8292842DA002907DD /* BluetoothService.swift */; };
 		3E4204DB29284377002907DD /* DiscoverServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204DA29284377002907DD /* DiscoverServiceProtocol.swift */; };
 		3E4204DE2928B423002907DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E4204E02928B423002907DD /* Localizable.strings */; };
 		3E4204E32928B4D4002907DD /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204E22928B4D4002907DD /* String+extension.swift */; };
+		3E4204E829296A36002907DD /* BirdsClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204E729296A35002907DD /* BirdsClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,6 @@
 		3E4204BC2926CCD8002907DD /* HiderView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HiderView-ViewModel.swift"; sourceTree = "<group>"; };
 		3E4204BE2926CD1F002907DD /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
 		3E4204C22926D498002907DD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		3E4204C62927CD3C002907DD /* BirdsClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BirdsClassifier.mlmodel; sourceTree = "<group>"; };
 		3E4204D6292821C6002907DD /* SeekerView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeekerView-ViewModel.swift"; sourceTree = "<group>"; };
 		3E4204D8292842DA002907DD /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
 		3E4204DA29284377002907DD /* DiscoverServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverServiceProtocol.swift; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		3E4204E12928B42E002907DD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3E4204E22928B4D4002907DD /* String+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		3E4204E429290554002907DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3E4204E729296A35002907DD /* BirdsClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BirdsClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,7 @@
 				3E4204BA2926CB85002907DD /* CircleButton.swift */,
 				3E4204C22926D498002907DD /* Constants.swift */,
 				3E4204E22928B4D4002907DD /* String+extension.swift */,
-				3E4204C62927CD3C002907DD /* BirdsClassifier.mlmodel */,
+				3E4204E729296A35002907DD /* BirdsClassifier.mlmodel */,
 				3E4204B82926CAAC002907DD /* birds.mp3 */,
 				3E4204E02928B423002907DD /* Localizable.strings */,
 			);
@@ -309,8 +309,8 @@
 				3E4204B12926BB74002907DD /* HiderView.swift in Sources */,
 				3E4204BD2926CCD8002907DD /* HiderView-ViewModel.swift in Sources */,
 				3E4204B32926BB7E002907DD /* SeekerView.swift in Sources */,
-				3E4204C72927CD3D002907DD /* BirdsClassifier.mlmodel in Sources */,
 				3E4204BF2926CD1F002907DD /* AudioService.swift in Sources */,
+				3E4204E829296A36002907DD /* BirdsClassifier.mlmodel in Sources */,
 				3E4204832926B9F5002907DD /* HideNSeekApp.swift in Sources */,
 				3E4204C32926D498002907DD /* Constants.swift in Sources */,
 				3E4204DB29284377002907DD /* DiscoverServiceProtocol.swift in Sources */,
