@@ -9,24 +9,31 @@ import Foundation
 
 extension HiderView {
 	@MainActor class ViewModel: ObservableObject {
-		var audioService: AudioServiceProtocol
+		var discoverService: DiscoverServiceProtocol
 
 		@Published var isHiding = false
-		var timer: Timer?
+		@Published var currentMode = Mode.sound {
+			didSet {
+				switch currentMode {
+				case .sound:
+					discoverService = AudioService(recording: true)
+				case .network:
+					discoverService = BluetoothService()
+				}
+			}
+		}
 
-		init(audioService: AudioServiceProtocol = AudioService(recording: false)) {
-			self.audioService = audioService
+		init(discoverService: DiscoverServiceProtocol = AudioService(recording: false)) {
+			self.discoverService = discoverService
 		}
 
 		func toggleHiding() {
 			isHiding.toggle()
 
 			if isHiding {
-				timer = Timer.scheduledTimer(withTimeInterval: Constants.soundInterval, repeats: true) { _ in
-					self.audioService.playSound()
-				}
+				self.discoverService.startAdvertising()
 			} else {
-				timer?.invalidate()
+				self.discoverService.stopAdvertising()
 			}
 		}
 	}

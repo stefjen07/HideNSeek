@@ -11,11 +11,24 @@ struct HiderView: View {
 	@ObservedObject var viewModel: ViewModel
 
     var body: some View {
-		Button(action: {
-			viewModel.toggleHiding()
-		}, label: {
-			CircleButton(text: viewModel.isHiding ? "Закончить прятки" : "Спрятался", color: .blue)
-		})
+		VStack {
+			Spacer()
+			Picker("Mode", selection: $viewModel.currentMode) {
+				ForEach(Mode.allCases) { mode in
+					Text(mode.name)
+						.tag(mode)
+				}
+			}
+			.pickerStyle(SegmentedPickerStyle())
+			Spacer()
+			Button(action: {
+				viewModel.toggleHiding()
+			}, label: {
+				CircleButton(text: viewModel.isHiding ? "Закончить прятки" : "Спрятался", color: .blue)
+			})
+			Spacer()
+		}
+		.padding(20)
     }
 }
 

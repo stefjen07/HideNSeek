@@ -8,22 +8,25 @@
 import SwiftUI
 
 extension SeekerView {
-	@MainActor class ViewModel: ObservableObject, AudioServiceDelegate {
-		var audioService: AudioServiceProtocol
+	@MainActor class ViewModel: ObservableObject, DiscoverServiceDelegate {
+		var discoverServices: [DiscoverServiceProtocol]
 
-		@Published var currentMode = Mode.sound
 		@Published var isSeeking = false
-		@Published var warmth: Double = 0
+		@Published var warmthDictionary: [Mode: Double] = [
+			.sound: 0,
+			.network: 0
+		]
 
-		init(audioService: AudioServiceProtocol = AudioService(recording: true)) {
-			self.audioService = audioService
-			self.audioService.delegate = self
+		init(discoverServices: [DiscoverServiceProtocol] = [AudioService(recording: true), BluetoothService()]) {
+			self.discoverServices = discoverServices
+
+			self.discoverServices.forEach { $0.delegate = self }
 		}
 
-		func warmthChanged(_ newWarmth: Double) {
+		func warmthChanged(_ newWarmth: Double, mode: Mode) {
 			DispatchQueue.main.async {
 				withAnimation {
-					self.warmth = newWarmth
+					self.warmthDictionary[mode] = newWarmth
 				}
 			}
 		}
@@ -32,9 +35,9 @@ extension SeekerView {
 			isSeeking.toggle()
 
 			if isSeeking {
-				audioService.startSeeking()
+				discoverServices.forEach { $0.startSeeking() }
 			} else {
-				audioService.stopSeeking()
+				discoverServices.forEach { $0.stopSeeking() }
 			}
 		}
 	}

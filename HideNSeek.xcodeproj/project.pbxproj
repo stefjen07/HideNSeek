@@ -23,6 +23,8 @@
 		3E4204C32926D498002907DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204C22926D498002907DD /* Constants.swift */; };
 		3E4204C72927CD3D002907DD /* BirdsClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204C62927CD3C002907DD /* BirdsClassifier.mlmodel */; };
 		3E4204D7292821C6002907DD /* SeekerView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204D6292821C6002907DD /* SeekerView-ViewModel.swift */; };
+		3E4204D9292842DA002907DD /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204D8292842DA002907DD /* BluetoothService.swift */; };
+		3E4204DB29284377002907DD /* DiscoverServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204DA29284377002907DD /* DiscoverServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		3E4204C22926D498002907DD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3E4204C62927CD3C002907DD /* BirdsClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BirdsClassifier.mlmodel; sourceTree = "<group>"; };
 		3E4204D6292821C6002907DD /* SeekerView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeekerView-ViewModel.swift"; sourceTree = "<group>"; };
+		3E4204D8292842DA002907DD /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
+		3E4204DA29284377002907DD /* DiscoverServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 				3E4204B22926BB7E002907DD /* SeekerView.swift */,
 				3E4204D6292821C6002907DD /* SeekerView-ViewModel.swift */,
 				3E4204BE2926CD1F002907DD /* AudioService.swift */,
+				3E4204D8292842DA002907DD /* BluetoothService.swift */,
+				3E4204DA29284377002907DD /* DiscoverServiceProtocol.swift */,
 				3E4204BA2926CB85002907DD /* CircleButton.swift */,
 				3E4204C22926D498002907DD /* Constants.swift */,
 				3E4204C62927CD3C002907DD /* BirdsClassifier.mlmodel */,
@@ -285,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E4204D9292842DA002907DD /* BluetoothService.swift in Sources */,
 				3E4204BB2926CB85002907DD /* CircleButton.swift in Sources */,
 				3E4204AD2926BB25002907DD /* RolePickerView.swift in Sources */,
 				3E4204D7292821C6002907DD /* SeekerView-ViewModel.swift in Sources */,
@@ -295,6 +302,7 @@
 				3E4204BF2926CD1F002907DD /* AudioService.swift in Sources */,
 				3E4204832926B9F5002907DD /* HideNSeekApp.swift in Sources */,
 				3E4204C32926D498002907DD /* Constants.swift in Sources */,
+				3E4204DB29284377002907DD /* DiscoverServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +464,7 @@
 				DEVELOPMENT_TEAM = S4TJY8UCM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth is used for seeking";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone is used for seeking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -486,6 +495,7 @@
 				DEVELOPMENT_TEAM = S4TJY8UCM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth is used for seeking";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone is used for seeking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

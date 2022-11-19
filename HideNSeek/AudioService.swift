@@ -9,24 +9,13 @@ import Foundation
 import AVFoundation
 import SoundAnalysis
 
-protocol AudioServiceProtocol {
-	func startSeeking()
-	func stopSeeking()
-	func playSound()
-
-	var delegate: AudioServiceDelegate? { get set }
-}
-
-protocol AudioServiceDelegate {
-	func warmthChanged(_ newWarmth: Double)
-}
-
-class AudioService: NSObject, AudioServiceProtocol {
-	var delegate: AudioServiceDelegate?
+class AudioService: NSObject {
+	var delegate: DiscoverServiceDelegate?
 
 	var player: AVAudioPlayer?
 	var audioEngine: AVAudioEngine!
 	var queue: DispatchQueue = .init(label: "audio_queue")
+	var timer: Timer?
 
 	var soundClassifier: BirdsClassifier?
 	var streamAnalyzer: SNAudioStreamAnalyzer?
@@ -84,7 +73,9 @@ class AudioService: NSObject, AudioServiceProtocol {
 	func stopRecording() {
 		audioEngine.inputNode.removeTap(onBus: 0)
 	}
+}
 
+extension AudioService: DiscoverServiceProtocol {
 	func startSeeking() {
 		prepareForRecording()
 		createClassificationRequest()
@@ -94,19 +85,26 @@ class AudioService: NSObject, AudioServiceProtocol {
 		stopRecording()
 	}
 
-	func playSound() {
+	func startAdvertising() {
 		try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, policy: .default, options: [.interruptSpokenAudioAndMixWithOthers])
 		try? AVAudioSession.sharedInstance().setActive(true)
 
-		guard let player = player else { return }
+		timer = Timer.scheduledTimer(withTimeInterval: Constants.soundInterval, repeats: true) { _ in
+			guard let player = self.player else { return }
 
-		player.currentTime = Double.random(in: 0..<player.duration - Constants.soundDuration)
-		player.prepareToPlay()
-		player.play()
+			player.currentTime = Double.random(in: 0..<player.duration - Constants.soundDuration)
+			player.prepareToPlay()
+			player.play()
 
-		Timer.scheduledTimer(withTimeInterval: Constants.soundDuration, repeats: false) { _ in
-			player.stop()
+			Timer.scheduledTimer(withTimeInterval: Constants.soundDuration, repeats: false) { _ in
+				player.stop()
+			}
 		}
+	}
+
+	func stopAdvertising() {
+		player?.stop()
+		timer?.invalidate()
 	}
 }
 
@@ -124,8 +122,9 @@ extension AudioService: SNResultsObserving {
 		} else {
 			warmth *= 0.85
 			warmth -= 0.03
+			warmth = max(0, warmth)
 		}
 
-		delegate?.warmthChanged(warmth)
+		delegate?.warmthChanged(warmth, mode: .sound)
 	}
 }
