@@ -25,6 +25,8 @@
 		3E4204D7292821C6002907DD /* SeekerView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204D6292821C6002907DD /* SeekerView-ViewModel.swift */; };
 		3E4204D9292842DA002907DD /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204D8292842DA002907DD /* BluetoothService.swift */; };
 		3E4204DB29284377002907DD /* DiscoverServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204DA29284377002907DD /* DiscoverServiceProtocol.swift */; };
+		3E4204DE2928B423002907DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E4204E02928B423002907DD /* Localizable.strings */; };
+		3E4204E32928B4D4002907DD /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204E22928B4D4002907DD /* String+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,10 @@
 		3E4204D6292821C6002907DD /* SeekerView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeekerView-ViewModel.swift"; sourceTree = "<group>"; };
 		3E4204D8292842DA002907DD /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
 		3E4204DA29284377002907DD /* DiscoverServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverServiceProtocol.swift; sourceTree = "<group>"; };
+		3E4204DF2928B423002907DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3E4204E12928B42E002907DD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3E4204E22928B4D4002907DD /* String+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
+		3E4204E429290554002907DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +122,7 @@
 		3E4204812926B9F5002907DD /* HideNSeek */ = {
 			isa = PBXGroup;
 			children = (
+				3E4204E429290554002907DD /* Info.plist */,
 				3E4204822926B9F5002907DD /* HideNSeekApp.swift */,
 				3E4204AC2926BB25002907DD /* RolePickerView.swift */,
 				3E4204862926B9F8002907DD /* Assets.xcassets */,
@@ -129,8 +136,10 @@
 				3E4204DA29284377002907DD /* DiscoverServiceProtocol.swift */,
 				3E4204BA2926CB85002907DD /* CircleButton.swift */,
 				3E4204C22926D498002907DD /* Constants.swift */,
+				3E4204E22928B4D4002907DD /* String+extension.swift */,
 				3E4204C62927CD3C002907DD /* BirdsClassifier.mlmodel */,
 				3E4204B82926CAAC002907DD /* birds.mp3 */,
+				3E4204E02928B423002907DD /* Localizable.strings */,
 			);
 			path = HideNSeek;
 			sourceTree = "<group>";
@@ -246,6 +255,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 3E4204762926B9F5002907DD;
 			productRefGroup = 3E4204802926B9F5002907DD /* Products */;
@@ -265,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E42048A2926B9F8002907DD /* Preview Assets.xcassets in Resources */,
+				3E4204DE2928B423002907DD /* Localizable.strings in Resources */,
 				3E4204B92926CAAC002907DD /* birds.mp3 in Resources */,
 				3E4204872926B9F8002907DD /* Assets.xcassets in Resources */,
 			);
@@ -303,6 +314,7 @@
 				3E4204832926B9F5002907DD /* HideNSeekApp.swift in Sources */,
 				3E4204C32926D498002907DD /* Constants.swift in Sources */,
 				3E4204DB29284377002907DD /* DiscoverServiceProtocol.swift in Sources */,
+				3E4204E32928B4D4002907DD /* String+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,11 +350,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		3E4204E02928B423002907DD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3E4204DF2928B423002907DD /* en */,
+				3E4204E12928B42E002907DD /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		3E4204A12926B9F8002907DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -389,7 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -403,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -443,7 +469,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -464,9 +490,9 @@
 				DEVELOPMENT_TEAM = S4TJY8UCM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HideNSeek/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth is used for seeking";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone is used for seeking";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -495,9 +521,9 @@
 				DEVELOPMENT_TEAM = S4TJY8UCM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HideNSeek/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth is used for seeking";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone is used for seeking";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

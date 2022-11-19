@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  HideNSeek
+
+  Created by Евгений on 19.11.22.
+  
+*/
+
+"seeker" = "Ищущий";
+"hider" = "Прячущийся";
+"choose-role" = "Выберите роль";
+"mode" = "Режим";
+"sound-advertising" = "Звуковое оповещение";
+"silence-advertising" = "Бесшумное оповещение";
+"stop-search" = "Закончить поиск";
+"start-search" = "Начать поиск";
+"hid" = "Спрятался";
+"stop-hiding" = "Закончить прятки";

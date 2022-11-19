@@ -18,9 +18,9 @@ enum Mode: String, Identifiable, CaseIterable {
 	var name: String {
 		switch self {
 		case .sound:
-			return "Звуковое оповещение"
+			return "sound-advertising".localized
 		case .network:
-			return "Бесшумное оповещение"
+			return "silence-advertising".localized
 		}
 	}
 }
@@ -32,7 +32,7 @@ struct SeekerView: View {
 		VStack {
 			Spacer()
 			Button(action: viewModel.toggleSeeking, label: {
-				CircleButton(text: viewModel.isSeeking ? "Закончить поиск" : "Начать поиск", color: .blue)
+				CircleButton(text: (viewModel.isSeeking ? "stop-search" : "start-search").localized, color: .blue)
 			})
 			Spacer()
 			ForEach(Mode.allCases) { mode in

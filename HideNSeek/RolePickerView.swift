@@ -18,9 +18,9 @@ enum Role: String, Identifiable, CaseIterable {
 	var description: String {
 		switch self {
 		case .seeker:
-			return "Ищущий"
+			return "seeker".localized
 		case .hider:
-			return "Прячущийся"
+			return "hider".localized
 		}
 	}
 
@@ -38,7 +38,7 @@ struct RolePickerView: View {
     var body: some View {
 		VStack {
 			Spacer()
-			Text("Выберите роль")
+			Text("choose-role")
 				.font(.largeTitle)
 				.bold()
 			ForEach(Role.allCases) { role in

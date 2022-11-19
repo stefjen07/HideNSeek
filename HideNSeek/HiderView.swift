@@ -13,7 +13,7 @@ struct HiderView: View {
     var body: some View {
 		VStack {
 			Spacer()
-			Picker("Mode", selection: $viewModel.currentMode) {
+			Picker("mode", selection: $viewModel.currentMode) {
 				ForEach(Mode.allCases) { mode in
 					Text(mode.name)
 						.tag(mode)
@@ -24,7 +24,7 @@ struct HiderView: View {
 			Button(action: {
 				viewModel.toggleHiding()
 			}, label: {
-				CircleButton(text: viewModel.isHiding ? "Закончить прятки" : "Спрятался", color: .blue)
+				CircleButton(text: (viewModel.isHiding ? "stop-hiding" : "hid").localized, color: .blue)
 			})
 			Spacer()
 		}
