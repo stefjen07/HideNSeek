@@ -12,6 +12,7 @@ class BluetoothService: NSObject {
 
 	let centralManager = CBCentralManager()
 	let peripheralManager = CBPeripheralManager()
+	var timer: Timer?
 
 	var peripherals: [CBPeripheral] = []
 	var warmth: Double = 0
@@ -20,13 +21,22 @@ class BluetoothService: NSObject {
 		super.init()
 		centralManager.delegate = self
 
-		Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
-			self.peripherals.forEach { $0.readRSSI() }
+		timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { [unowned self] _ in
+			if self.peripherals.isEmpty == true {
+				warmth = 0
+				delegate?.discoverService(self, newWarmth: warmth, mode: .network)
+			} else {
+				self.peripherals.forEach { $0.readRSSI() }
+			}
 		}
 	}
 
+	deinit {
+		timer?.invalidate()
+	}
+
 	func processRSSI(_ RSSI: NSNumber) {
-		warmth += (128 - Double(RSSI)) / 256
+		warmth = 0.5 * warmth + (Double(RSSI) + 80) / 128
 		warmth = min(1, max(0, warmth))
 		delegate?.discoverService(self, newWarmth: warmth, mode: .network)
 	}
@@ -39,6 +49,10 @@ extension BluetoothService: DiscoverServiceProtocol {
 
 	func stopSeeking() {
 		centralManager.stopScan()
+
+		for peripheral in peripherals {
+			centralManager.cancelPeripheralConnection(peripheral)
+		}
 	}
 
 	func startAdvertising() {
@@ -47,6 +61,10 @@ extension BluetoothService: DiscoverServiceProtocol {
 
 	func stopAdvertising() {
 		peripheralManager.stopAdvertising()
+
+		if peripheralManager.state == .poweredOn {
+			peripheralManager.removeAllServices()
+		}
 	}
 }
 
@@ -58,8 +76,15 @@ extension BluetoothService: CBCentralManagerDelegate {
 	func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
 		peripheral.delegate = self
 		peripherals.append(peripheral)
-		centralManager.connect(peripheral)
+		central.connect(peripheral)
 		processRSSI(RSSI)
+	}
+
+	func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+		guard let index = peripherals.firstIndex(of: peripheral) else { return }
+
+		central.cancelPeripheralConnection(peripheral)
+		peripherals.remove(at: index)
 	}
 }
 

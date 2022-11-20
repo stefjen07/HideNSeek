@@ -16,7 +16,7 @@ extension HiderView {
 			didSet {
 				switch currentMode {
 				case .sound:
-					discoverService = AudioService(recording: true)
+					discoverService = AudioService(recording: false)
 				case .network:
 					discoverService = BluetoothService()
 				}

@@ -20,6 +20,7 @@ struct HiderView: View {
 				}
 			}
 			.pickerStyle(SegmentedPickerStyle())
+			.disabled(viewModel.isHiding)
 			Spacer()
 			Button(action: {
 				viewModel.toggleHiding()

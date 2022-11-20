@@ -100,8 +100,8 @@ extension AudioService: DiscoverServiceProtocol {
 			print(error.localizedDescription)
 		}
 
-		timer = Timer.scheduledTimer(withTimeInterval: Constants.soundInterval, repeats: true) { _ in
-			guard let player = self.player else { return }
+		timer = Timer.scheduledTimer(withTimeInterval: Constants.soundInterval, repeats: true) { [weak self] _ in
+			guard let player = self?.player else { return }
 
 			player.currentTime = Double.random(in: 0..<player.duration - Constants.soundDuration)
 			player.prepareToPlay()

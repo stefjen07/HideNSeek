@@ -16,7 +16,7 @@ struct CircleButton: View {
 			.font(.title)
 			.bold()
 			.foregroundColor(.white)
-			.padding(80)
+			.frame(width: 200, height: 200)
 			.background(
 				Circle()
 					.foregroundColor(color)
