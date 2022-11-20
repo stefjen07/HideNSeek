@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension SeekerView {
-	@MainActor class ViewModel: ObservableObject, DiscoverServiceDelegate {
+	@MainActor class ViewModel: ObservableObject {
 		var discoverServices: [DiscoverServiceProtocol]
 
 		@Published var isSeeking = false
@@ -23,14 +23,6 @@ extension SeekerView {
 			self.discoverServices.forEach { $0.delegate = self }
 		}
 
-		func warmthChanged(_ newWarmth: Double, mode: Mode) {
-			DispatchQueue.main.async {
-				withAnimation {
-					self.warmthDictionary[mode] = newWarmth
-				}
-			}
-		}
-
 		func toggleSeeking() {
 			isSeeking.toggle()
 
@@ -38,6 +30,16 @@ extension SeekerView {
 				discoverServices.forEach { $0.startSeeking() }
 			} else {
 				discoverServices.forEach { $0.stopSeeking() }
+			}
+		}
+	}
+}
+
+extension SeekerView.ViewModel: DiscoverServiceDelegate {
+	func discoverService(_ discoverService: DiscoverServiceProtocol, newWarmth: Double, mode: Mode) {
+		DispatchQueue.main.async {
+			withAnimation {
+				self.warmthDictionary[mode] = newWarmth
 			}
 		}
 	}

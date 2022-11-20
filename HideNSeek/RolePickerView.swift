@@ -7,33 +7,6 @@
 
 import SwiftUI
 
-enum Role: String, Identifiable, CaseIterable {
-	case seeker
-	case hider
-
-	var id: Int {
-		rawValue.hashValue
-	}
-
-	var description: String {
-		switch self {
-		case .seeker:
-			return "seeker".localized
-		case .hider:
-			return "hider".localized
-		}
-	}
-
-	var color: Color {
-		switch self {
-		case .seeker:
-			return .red
-		case .hider:
-			return .blue
-		}
-	}
-}
-
 struct RolePickerView: View {
     var body: some View {
 		VStack {

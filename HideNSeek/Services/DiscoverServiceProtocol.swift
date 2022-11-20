@@ -8,14 +8,14 @@
 import Foundation
 
 protocol DiscoverServiceProtocol: AnyObject {
+	var delegate: DiscoverServiceDelegate? { get set }
+
 	func startSeeking()
 	func stopSeeking()
 	func startAdvertising()
 	func stopAdvertising()
-
-	var delegate: DiscoverServiceDelegate? { get set }
 }
 
 protocol DiscoverServiceDelegate {
-	func warmthChanged(_ newWarmth: Double, mode: Mode)
+	func discoverService(_ discoverService: DiscoverServiceProtocol, newWarmth: Double, mode: Mode)
 }

@@ -7,24 +7,6 @@
 
 import SwiftUI
 
-enum Mode: String, Identifiable, CaseIterable {
-	case sound
-	case network
-
-	var id: Int {
-		hashValue
-	}
-
-	var name: String {
-		switch self {
-		case .sound:
-			return "sound-advertising".localized
-		case .network:
-			return "silence-advertising".localized
-		}
-	}
-}
-
 struct SeekerView: View {
 	@ObservedObject var viewModel: ViewModel
 
@@ -32,7 +14,7 @@ struct SeekerView: View {
 		VStack {
 			Spacer()
 			Button(action: viewModel.toggleSeeking, label: {
-				CircleButton(text: (viewModel.isSeeking ? "stop-search" : "start-search").localized, color: .blue)
+				CircleButton(text: (viewModel.isSeeking ? "stop-search" : "start-search").localized, color: .accentColor)
 			})
 			Spacer()
 			ForEach(Mode.allCases) { mode in
@@ -43,6 +25,12 @@ struct SeekerView: View {
 						Rectangle()
 							.fill(Color.gray)
 							.frame(width: proxy.size.width * (1 - viewModel.warmthDictionary[mode]!))
+						HStack {
+							mode.icon
+								.foregroundColor(.white)
+							Spacer()
+						}
+						.padding(.horizontal, 15)
 					}
 				}
 				.frame(height: 50)
@@ -51,6 +39,11 @@ struct SeekerView: View {
 			Spacer()
 		}
 		.padding(20)
+		.onDisappear {
+			if viewModel.isSeeking {
+				viewModel.toggleSeeking()
+			}
+		}
     }
 }
 

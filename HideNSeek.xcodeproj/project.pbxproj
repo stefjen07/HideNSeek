@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3E4204832926B9F5002907DD /* HideNSeekApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204822926B9F5002907DD /* HideNSeekApp.swift */; };
 		3E4204872926B9F8002907DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E4204862926B9F8002907DD /* Assets.xcassets */; };
-		3E42048A2926B9F8002907DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E4204892926B9F8002907DD /* Preview Assets.xcassets */; };
 		3E4204942926B9F8002907DD /* HideNSeekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204932926B9F8002907DD /* HideNSeekTests.swift */; };
 		3E42049E2926B9F8002907DD /* HideNSeekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E42049D2926B9F8002907DD /* HideNSeekUITests.swift */; };
 		3E4204A02926B9F8002907DD /* HideNSeekUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E42049F2926B9F8002907DD /* HideNSeekUITestsLaunchTests.swift */; };
@@ -27,6 +26,8 @@
 		3E4204DE2928B423002907DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E4204E02928B423002907DD /* Localizable.strings */; };
 		3E4204E32928B4D4002907DD /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204E22928B4D4002907DD /* String+extension.swift */; };
 		3E4204E829296A36002907DD /* BirdsClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3E4204E729296A35002907DD /* BirdsClassifier.mlmodel */; };
+		3E4205042929A16D002907DD /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4205032929A16D002907DD /* Role.swift */; };
+		3E4205062929A39C002907DD /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4205052929A39C002907DD /* Mode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,6 @@
 		3E42047F2926B9F5002907DD /* HideNSeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HideNSeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E4204822926B9F5002907DD /* HideNSeekApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideNSeekApp.swift; sourceTree = "<group>"; };
 		3E4204862926B9F8002907DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3E4204892926B9F8002907DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3E42048F2926B9F8002907DD /* HideNSeekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HideNSeekTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E4204932926B9F8002907DD /* HideNSeekTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideNSeekTests.swift; sourceTree = "<group>"; };
 		3E4204992926B9F8002907DD /* HideNSeekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HideNSeekUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +72,8 @@
 		3E4204E22928B4D4002907DD /* String+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		3E4204E429290554002907DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3E4204E729296A35002907DD /* BirdsClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BirdsClassifier.mlmodel; sourceTree = "<group>"; };
+		3E4205032929A16D002907DD /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		3E4205052929A39C002907DD /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,34 +124,20 @@
 		3E4204812926B9F5002907DD /* HideNSeek */ = {
 			isa = PBXGroup;
 			children = (
+				3E4204FD29299EED002907DD /* Interface */,
+				3E4204FE29299F02002907DD /* Services */,
+				3E4205072929A3A2002907DD /* Data */,
+				3E4204FF29299F1F002907DD /* HiderView */,
+				3E42050029299F2C002907DD /* SeekerView */,
+				3E42050229299FAC002907DD /* Sound */,
+				3E42050129299F6C002907DD /* Extensions */,
 				3E4204E429290554002907DD /* Info.plist */,
 				3E4204822926B9F5002907DD /* HideNSeekApp.swift */,
 				3E4204AC2926BB25002907DD /* RolePickerView.swift */,
-				3E4204862926B9F8002907DD /* Assets.xcassets */,
-				3E4204882926B9F8002907DD /* Preview Content */,
-				3E4204B02926BB74002907DD /* HiderView.swift */,
-				3E4204BC2926CCD8002907DD /* HiderView-ViewModel.swift */,
-				3E4204B22926BB7E002907DD /* SeekerView.swift */,
-				3E4204D6292821C6002907DD /* SeekerView-ViewModel.swift */,
-				3E4204BE2926CD1F002907DD /* AudioService.swift */,
-				3E4204D8292842DA002907DD /* BluetoothService.swift */,
-				3E4204DA29284377002907DD /* DiscoverServiceProtocol.swift */,
 				3E4204BA2926CB85002907DD /* CircleButton.swift */,
 				3E4204C22926D498002907DD /* Constants.swift */,
-				3E4204E22928B4D4002907DD /* String+extension.swift */,
-				3E4204E729296A35002907DD /* BirdsClassifier.mlmodel */,
-				3E4204B82926CAAC002907DD /* birds.mp3 */,
-				3E4204E02928B423002907DD /* Localizable.strings */,
 			);
 			path = HideNSeek;
-			sourceTree = "<group>";
-		};
-		3E4204882926B9F8002907DD /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				3E4204892926B9F8002907DD /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		3E4204922926B9F8002907DD /* HideNSeekTests */ = {
@@ -167,6 +155,69 @@
 				3E42049F2926B9F8002907DD /* HideNSeekUITestsLaunchTests.swift */,
 			);
 			path = HideNSeekUITests;
+			sourceTree = "<group>";
+		};
+		3E4204FD29299EED002907DD /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				3E4204862926B9F8002907DD /* Assets.xcassets */,
+				3E4204E02928B423002907DD /* Localizable.strings */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		3E4204FE29299F02002907DD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3E4204BE2926CD1F002907DD /* AudioService.swift */,
+				3E4204D8292842DA002907DD /* BluetoothService.swift */,
+				3E4204DA29284377002907DD /* DiscoverServiceProtocol.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3E4204FF29299F1F002907DD /* HiderView */ = {
+			isa = PBXGroup;
+			children = (
+				3E4204B02926BB74002907DD /* HiderView.swift */,
+				3E4204BC2926CCD8002907DD /* HiderView-ViewModel.swift */,
+			);
+			path = HiderView;
+			sourceTree = "<group>";
+		};
+		3E42050029299F2C002907DD /* SeekerView */ = {
+			isa = PBXGroup;
+			children = (
+				3E4204B22926BB7E002907DD /* SeekerView.swift */,
+				3E4204D6292821C6002907DD /* SeekerView-ViewModel.swift */,
+			);
+			path = SeekerView;
+			sourceTree = "<group>";
+		};
+		3E42050129299F6C002907DD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3E4204E22928B4D4002907DD /* String+extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3E42050229299FAC002907DD /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				3E4204E729296A35002907DD /* BirdsClassifier.mlmodel */,
+				3E4204B82926CAAC002907DD /* birds.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		3E4205072929A3A2002907DD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3E4205032929A16D002907DD /* Role.swift */,
+				3E4205052929A39C002907DD /* Mode.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,7 +325,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E42048A2926B9F8002907DD /* Preview Assets.xcassets in Resources */,
 				3E4204DE2928B423002907DD /* Localizable.strings in Resources */,
 				3E4204B92926CAAC002907DD /* birds.mp3 in Resources */,
 				3E4204872926B9F8002907DD /* Assets.xcassets in Resources */,
@@ -303,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E4204D9292842DA002907DD /* BluetoothService.swift in Sources */,
+				3E4205042929A16D002907DD /* Role.swift in Sources */,
 				3E4204BB2926CB85002907DD /* CircleButton.swift in Sources */,
 				3E4204AD2926BB25002907DD /* RolePickerView.swift in Sources */,
 				3E4204D7292821C6002907DD /* SeekerView-ViewModel.swift in Sources */,
@@ -312,6 +363,7 @@
 				3E4204BF2926CD1F002907DD /* AudioService.swift in Sources */,
 				3E4204E829296A36002907DD /* BirdsClassifier.mlmodel in Sources */,
 				3E4204832926B9F5002907DD /* HideNSeekApp.swift in Sources */,
+				3E4205062929A39C002907DD /* Mode.swift in Sources */,
 				3E4204C32926D498002907DD /* Constants.swift in Sources */,
 				3E4204DB29284377002907DD /* DiscoverServiceProtocol.swift in Sources */,
 				3E4204E32928B4D4002907DD /* String+extension.swift in Sources */,
@@ -486,7 +538,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HideNSeek/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = S4TJY8UCM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -517,7 +569,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HideNSeek/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = S4TJY8UCM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

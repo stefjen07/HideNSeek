@@ -24,11 +24,16 @@ struct HiderView: View {
 			Button(action: {
 				viewModel.toggleHiding()
 			}, label: {
-				CircleButton(text: (viewModel.isHiding ? "stop-hiding" : "hid").localized, color: .blue)
+				CircleButton(text: (viewModel.isHiding ? "stop-hiding" : "hid").localized, color: .accentColor)
 			})
 			Spacer()
 		}
 		.padding(20)
+		.onDisappear {
+			if viewModel.isHiding {
+				viewModel.toggleHiding()
+			}
+		}
     }
 }
 

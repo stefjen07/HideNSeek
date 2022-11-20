@@ -43,8 +43,13 @@ class AudioService: NSObject {
 	}
 
 	func prepareForRecording() {
-		try? AVAudioSession.sharedInstance().setCategory(.record, mode: .default, policy: .default, options: [.interruptSpokenAudioAndMixWithOthers])
-		try? AVAudioSession.sharedInstance().setActive(true)
+		do {
+			try AVAudioSession.sharedInstance().setActive(false)
+			try AVAudioSession.sharedInstance().setCategory(.record, mode: .default, policy: .default, options: [.interruptSpokenAudioAndMixWithOthers])
+			try AVAudioSession.sharedInstance().setActive(true)
+		} catch {
+			print(error.localizedDescription)
+		}
 
 		let inputNode = audioEngine.inputNode
 		let recordingFormat = inputNode.outputFormat(forBus: 0)
@@ -72,6 +77,7 @@ class AudioService: NSObject {
 
 	func stopRecording() {
 		audioEngine.inputNode.removeTap(onBus: 0)
+		audioEngine.stop()
 	}
 }
 
@@ -86,8 +92,13 @@ extension AudioService: DiscoverServiceProtocol {
 	}
 
 	func startAdvertising() {
-		try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, policy: .default, options: [.interruptSpokenAudioAndMixWithOthers])
-		try? AVAudioSession.sharedInstance().setActive(true)
+		do {
+			try AVAudioSession.sharedInstance().setActive(false)
+			try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, policy: .default, options: [.interruptSpokenAudioAndMixWithOthers])
+			try AVAudioSession.sharedInstance().setActive(true)
+		} catch {
+			print(error.localizedDescription)
+		}
 
 		timer = Timer.scheduledTimer(withTimeInterval: Constants.soundInterval, repeats: true) { _ in
 			guard let player = self.player else { return }
@@ -125,6 +136,6 @@ extension AudioService: SNResultsObserving {
 			warmth = max(0, warmth)
 		}
 
-		delegate?.warmthChanged(warmth, mode: .sound)
+		delegate?.discoverService(self, newWarmth: warmth, mode: .sound)
 	}
 }

@@ -28,7 +28,7 @@ class BluetoothService: NSObject {
 	func processRSSI(_ RSSI: NSNumber) {
 		warmth += (128 - Double(RSSI)) / 256
 		warmth = min(1, max(0, warmth))
-		delegate?.warmthChanged(warmth, mode: .network)
+		delegate?.discoverService(self, newWarmth: warmth, mode: .network)
 	}
 }
 
